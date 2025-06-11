@@ -1,0 +1,264 @@
+*{
+    color:var(--color-texto) !important;
+}
+
+/*parametros de colores para proyecto*/
+
+
+:root{
+    --color-primario: #ffffff;
+    --color-secundario: #283845;
+    --color-nav: #343a40;
+    --color-terciario: #f8f9fa;
+    --color-texto: #222222;;
+}
+
+/*parametros para body*/
+
+body {
+    font-family: sans-serif;
+    background-color:var(--color-primario);
+    color: var(--color-texto);
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
+    margin-bottom: 40px;
+    
+}
+
+/*parametros para titulo y subtitulo*/
+
+h1, h2, h3{
+
+    color:var(--color-texto);
+    text-align: center;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    
+
+}
+
+/* parametros para parrafo*/
+
+p {
+    color:var(--color-texto);
+    line-height: 1.5;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 24px;
+}
+
+/* parametros para barra de busqueda*/
+
+nav ul{
+    color: var(--color-primario);
+    display: flex;
+    justify-content: center;
+    list-style: none;
+}
+
+/* parametros de colores para proyecto*/
+
+nav ul li {
+    margin: 0 15px;
+}
+
+/* parametros para clase: photo (sección)*/
+
+.photo {
+    margin: 20px auto;
+    padding: 10px;
+    border-radius: 5px;
+    justify-content: center;
+    align-items: center;
+}
+
+/*parametros para imagen de clase*/
+
+.photo img {
+    max-width: 100%;
+    margin: 20px auto;
+    height: auto;
+    display: block;
+    align-items: center;
+    justify-content: center;
+}
+
+/*parametros para transición de NavBar*/
+
+.navbar-inverse{
+
+    background-color:var(--color-nav);
+    border-color: var(--color-nav);
+
+}
+.navbar-nav > li > a {
+    font-size: 16px; 
+    transition: font-size 0.3s ease-in-out; 
+}
+
+.navbar-nav > li > a:hover {
+    font-size: 20px; 
+}
+
+
+/*parametros para form (desde form hasta input type = "submit")*/
+
+.container-form {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
+}
+
+
+
+form {
+
+    width: 80%;
+    max-width: 1200px;
+    margin: 0 auto;
+    background: var(--color-secundario);
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px var(--color-nav);
+    max-height: 650px;
+
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.img-thumbnail {
+    transition: transform 0.3s ease;
+    margin-bottom: 1rem;
+}
+
+.img-thumbnail:hover {
+    transform: scale(1.05);
+}
+
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid var(--color-terciario);
+    border-radius: 4px;
+    max-width: 100%;
+    color: var(--color-nav);
+    background-color: var(--color-secundario);
+}
+
+.form-control {
+    color: var(--color-nav); 
+    background-color: var(--color-primario); 
+    border: 1px solid var(--color-terciario);
+}
+
+
+input[type="submit"] {
+    background-color:var(--color-primario);
+    max-width: 100%;
+    color: var(--color-terciario);
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+input[type="submit"]:hover {
+    background-color: var(--color-terciario);
+}
+
+.alert-success {
+    background-color: var(--color-terciario); 
+    color: white; 
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/*parametros para clase gallery (y su respectiva transición)*/
+
+.gallery{
+
+    padding: 20px;
+    box-shadow: 80%;
+    background-color: var(--color-terciario);
+}
+ul li img {
+    border: 3px solid var(--color-texto);
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+ul li img:hover {
+    transform: scale(1.05);
+    border-color: var(--color-terciario);
+}
+
+select {
+    background-color: var(--color-texto);
+    border: 2px solid var(--color-secundario);
+    border-radius: 5px;
+    padding: 8px;
+    transition: all 0.3s ease-in-out;
+  }
+
+  select:hover {
+    background-color: var(--color-terciario);
+    transform: scale(1.05);
+  }
+  option {
+    font-size: 16px;
+    padding: 8px;
+  }
+  select:focus {
+    background-color: var(--color-terciario);
+  }
+
+/* Parametros para modal*/ 
+
+.modal {
+    display: none; 
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: var(--color-secundario);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--color-nav);
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+}
+
+/* Parametros para boton de cierre modal*/
+.close {
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    color: var(--color-terciario);
+}
+
+.close:hover {
+    color: var(--color-terciario);
+}
