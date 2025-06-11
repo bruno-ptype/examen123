@@ -1,0 +1,138 @@
+/*parametros generales*/
+*{
+    color: var(--color-texto);
+}
+
+:root{
+
+    --color-primario: #fffafa;
+    --color-secundario: #283845;
+    --color-nav: #343a40;
+    --color-terciario: #f8f9fa;
+    --color-texto: #222222;
+
+}
+   /*parametros para body  */   
+
+body{
+    background-image:url('background-img.jpg');
+    font-family: sans-serif;
+    background-color:var(--color-primario);
+    color: var(--color-texto);
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.texto-en-cuadro{
+    color: var(--color-terciario);
+    background-color: var(--color-secundario);
+    padding: 10px;
+    display: inline-block;
+    border-radius: 10px;
+    margin-bottom: 100px;
+    margin: auto;    
+}
+
+h1{
+    text-align: center;
+    letter-spacing: 1px;
+    margin: 100px;
+}       
+
+h1, h2, p{
+    line-height: 1.8;
+}
+
+/* parametros texto */
+p{
+    color:var(--color-texto);
+    line-height: 1.5;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 24px;
+}
+
+/* Botones */
+.btn-primary {
+    align-items: justify;
+    margin: 30px;  
+    color: var(--color-texto);
+    background-color: var(--color-terciario);
+    border-color: var(--color-primario)
+    
+
+}
+
+.btn-primary:hover {
+    background-color: var(--color-texto);
+    border-color: var(--color-secundario)
+}
+
+.btn-danger {
+    background-color: var(--color-terciario);
+    color: var(--color-texto);
+    border-color: var(--color-terciario);
+}
+
+.btn-danger:hover{
+    background-color: var(--color-texto);
+    border-color: var(--color-secundario);   
+}
+
+/* Cards */
+.card {
+
+    color: var(--color-terciario) !important;
+    background-color: var(--color-secundario) !important;
+    border: 2px solid var(--color-nav);
+    border-radius: 8px;
+    box-shadow: 4px 4px 0 var(--color-nav);
+    margin: 40px;
+    max-width: 400px;
+}
+
+.card-body {
+    color: var(--color-texto) !important; /* Ajusta el color según tu preferencia */
+    text-align: center;
+}
+
+.card-title {
+    color: var(--color-primario) !important; /* Cambia a cualquier color que contraste */
+    font-weight: bold; /* Opcional para resaltar el texto */
+    text-align: center;
+}
+
+.card-text{
+    color: var(--color-primario);
+}
+
+/* Formulario */
+#formulario {
+
+    border-radius: 10px;
+    background-color: var(--color-secundario);
+    border: 2px solid var(--color-texto);
+    margin-top: 40px;
+    color: var(--color-primario);
+    text-align: justify;
+    max-width: 600px;
+}
+
+.form-label{
+    color: var(--color-primario);
+    padding: 10px;
+}
+
+.form-control{
+    color: var(--color-texto);
+}
+/* Modal */
+.modal-header {
+    background-color: var(--color-secundario);
+    color: var(--color-primario) !important;
+}

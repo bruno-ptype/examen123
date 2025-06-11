@@ -1,36 +1,60 @@
-// Codigo JS para el formulario
+document.getElementById('form-empleado').addEventListener('submit', function(e) {
+    e.preventDefault();
+    validarFormulario();
+});
 
-document.getElementById("formInscripcion").addEventListener("submit", function(evento) {
-    evento.preventDefault();
+function validarFormulario() {
+    const nombre = document.getElementById('nombre').value;
+    const correo = document.getElementById('correo').value;
+    const fechaNacimiento = new Date(document.getElementById('fecha-nacimiento').value);
+    const fechaIngreso = new Date(document.getElementById('fecha-ingreso').value);
 
-    const nombre = document.getElementById("nombre").value.trim();
-    const email = document.getElementById("email").value.trim();
-    const mensaje = document.getElementById("mensaje").value.trim();
-    const resultado = document.getElementById("resultado");
-    let tipo = document.getElementById("tipo").value;
-
-// Validador de campos
-
-if (!nombre.length || !email.length || !mensaje.length) {
-    resultado.innerHTML = "<div class='alert alert-danger'>Error: por favor, rellena los campos solicitados.</div>";
-    return;
-}
- // Identificador de solicitud segun mensaje
-
-    if (mensaje.toLowerCase().includes("compra")) {
-        tipo = "Compra";
-    } else if (mensaje.toLowerCase().includes("venta") || mensaje.toLowerCase().includes("vender")) {
-        tipo = "Venta";
-    } else if (mensaje.toLowerCase().includes("consulta") || mensaje.toLowerCase().includes("preguntar")){
-        tipo = "Consulta"
+    // Validar edad mínima (18 años)
+    const edadMinima = new Date(fechaNacimiento.getFullYear() + 18, fechaNacimiento.getMonth(), fechaNacimiento.getDate());
+    if (fechaIngreso < edadMinima) {
+        alert('El empleado debe tener al menos 18 años al ingresar.');
+        return;
     }
 
-// Mensaje de confirmación
+    // Validar correo único
+    const usuarios = document.querySelectorAll('#lista-usuarios .card-text');
+    for (let usuario of usuarios) {
+        if (usuario.textContent.includes(correo)) {
+            alert('El correo ya está registrado.');
+            return;
+        }
+    }
 
-    resultado.innerHTML = `
-        <div class="alert alert-success">
-            Estimado ${nombre}, tu solicitud ha sido recibida. Recibirás un correo con la información solicitada.<br>
-            <strong>Tipo de solicitud:</strong> ${tipo}
+    // Mostrar modal
+    const modal = new bootstrap.Modal(document.getElementById('modalConfirmacion'));
+    modal.show();
+
+    document.getElementById('confirmar-agregar').onclick = function() {
+        agregarUsuario(nombre, correo, fechaNacimiento, fechaIngreso);
+        modal.hide();
+    };
+}
+
+function agregarUsuario(nombre, correo, fechaNacimiento, fechaIngreso) {
+    const cargo = document.getElementById('cargo').value;
+    const listaUsuarios = document.getElementById('lista-usuarios');
+
+    const usuarioHTML = `
+        <div class="col-md-4 mb-3">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">${nombre}</h5>
+                    <p class="card-text">Email: ${correo}<br>Cargo: ${cargo}</p>
+                    <button class="btn btn-danger btn-sm" onclick="eliminarUsuario(this)">Eliminar</button>
+                </div>
+            </div>
         </div>
     `;
-});
+
+    listaUsuarios.insertAdjacentHTML('beforeend', usuarioHTML);
+    document.getElementById('form-empleado').reset();
+}
+
+function eliminarUsuario(boton) {
+    boton.closest('.col-md-4').remove();
+}
